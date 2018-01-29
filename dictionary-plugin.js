@@ -1,8 +1,18 @@
+
+var TLM_DB_JSON;
+
+function loadDictionary() {
+    return fetch('http://localhost:5000/db_telemetry',{cache: 'force-cache'})
+    .then(function (response) {
+        TLM_DB_JSON = response.json()
+        return TLM_DB_JSON;
+    });    
+}
 function getDictionary() {
-    return http.get('/dictionary.json')
-        .then(function (result) {
-            return result.data;
-        });
+    var p = new Promise(function(res,rej){
+        res(TLM_DB_JSON);
+    });
+    return p;
 }
 
 var objectProvider = {
