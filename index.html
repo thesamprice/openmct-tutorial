@@ -4,8 +4,12 @@
     <title>Open MCT Tutorials</title>
     <script src="node_modules/openmct/dist/openmct.js"></script>
     <script src="lib/http.js"></script>
+    <script src='lib/socket.io-client/socket.io.js'></script>
     <script src="dictionary-plugin.js"></script>
+
+    <script src="realtime-telemetry-plugin.js"></script>
     <script src="historical-telemetry-plugin.js"></script>
+
 </head>
 <body>
     <script>
@@ -19,10 +23,12 @@
 
         loadDictionary().then(function(result){
             openmct.install(DictionaryPlugin());
+            openmct.install(RealtimeTelemetryPlugin());
+            openmct.install(HistoricalTelemetryPlugin());            
             openmct.start();
         });
 
-//        openmct.install(HistoricalTelemetryPlugin());
+
 
 
     </script>

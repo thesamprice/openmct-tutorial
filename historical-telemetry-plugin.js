@@ -14,10 +14,19 @@ function HistoricalTelemetryPlugin() {
                     '?start=' + options.start +
                     '&end=' + options.end;
     
-                return http.get(url)
-                    .then(function (resp) {
-                        return resp.data;
+                    var p = new Promise(function(res,rej){
+                        var id = domainObject.identifier.key;
+                        if(telemetry_history.hasOwnProperty(id))
+                        {
+                            return res(telemetry_history[id]);
+                        }
+                        else{
+                            return res([]);
+                        }
+
                     });
+                    return p;
+
             }
         };
     
