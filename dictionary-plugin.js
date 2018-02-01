@@ -1,12 +1,24 @@
 
 var TLM_DB_JSON;
-
+var FLAT_DB = {}
+function BuildFlatDB(x){
+    FLAT_DB[x.key] = x;
+    var i=0;
+    for(i=0;i<x.children.length;i+=1)
+    {
+        BuildFlatDB(x.children[i])
+    }
+}
 function loadDictionary() {
-    return fetch('http://localhost:5000/db_telemetry',{cache: 'force-cache'})
+    return fetch('/db_telemetry',{cache: 'force-cache'})
     .then(function (response) {
         TLM_DB_JSON = response.json()
         return TLM_DB_JSON;
-    });    
+    }).then(function(res){
+        TLM_DB_JSON = res;
+        BuildFlatDB(res)
+        return TLM_DB_JSON;
+    });
 }
 function getDictionary() {
     var p = new Promise(function(res,rej){
@@ -17,29 +29,38 @@ function getDictionary() {
 
 var objectProvider = {
     get: function (identifier) {
-        return getDictionary().then(function (dictionary) {
+
+        var GetObj = function(identifier){
             if (identifier.key === 'spacecraft') {
                 return {
                     identifier: identifier,
-                    name: dictionary.name,
+                    name: TLM_DB_JSON.name,
                     type: 'folder',
-                    location: 'ROOT'
-                };
-            } else {
-                var measurement = dictionary.measurements.filter(function (m) {
-                    return m.key === identifier.key;
-                })[0];
-                return {
-                    identifier: identifier,
-                    name: measurement.name,
-                    type: 'example.telemetry',
-                    telemetry: {
-                        values: measurement.values
-                    },
-                    location: 'example.taxonomy:spacecraft'
+                    location: 'ROOT',
+                    children: TLM_DB_JSON.children
                 };
             }
+            else{
+                var measurement = FLAT_DB[identifier.key];
+                measurement['identifier'] = identifier;
+                if (measurement.type == 'folder')
+                {
+
+                }
+                else{
+                    measurement.telemetry = {
+                        values: measurement.values
+                    }
+                }
+
+                return measurement;
+            }
+        }
+        var p = new Promise(function(res,rej){
+            var obj = GetObj(identifier)
+            res(obj);
         });
+        return p
     }
 };
 
@@ -49,15 +70,21 @@ var compositionProvider = {
                domainObject.type === 'folder';
     },
     load: function (domainObject) {
-        return getDictionary()
-            .then(function (dictionary) {
-                return dictionary.measurements.map(function (m) {
-                    return {
-                        namespace: 'example.taxonomy',
-                        key: m.key
-                    };
-                });
+
+        var GetObj = function(domainObject)
+        {
+            return domainObject.children.map(function (m) {
+                return {
+                    namespace: 'example.taxonomy',
+                    key: m.key
+                };
             });
+        }
+        var p = new Promise(function(res,rej){
+            var obj = GetObj(domainObject)
+            res(obj);
+        });
+        return p;
     }
 };
 
