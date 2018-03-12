@@ -1,8 +1,31 @@
-function GetAttr( dict, fnames)
+ 
+function GetAttr( obj, key)
 {
-    if(fnames.length == 1)
-        return dict[fnames[0]]
-    return GetAttr(dict[fnames[0]], fnames.slice(1))
+    var keys = key.split('.')
+    while(keys.length >= 1)
+    {
+        var key_0 = keys[0];
+        keys = keys.slice(1);
+
+        key_0 = key_0.split('[')
+
+        if(key_0.length > 1) /* Handle arrays */
+        {
+            obj = obj[key_0[0]]
+            key_0 = key_0.slice(1)
+            while(key_0.length > 0)
+            {
+                var index = parseInt(key_0[0].replace(']',''))
+                obj = obj[index]
+                key_0 = key_0.slice(1)
+            }
+        }
+        else{
+            obj = obj[key_0]
+        }
+    }
+    return obj
+
 }
 var TLM_HISTORY = {}
 /**
@@ -24,10 +47,23 @@ function RealtimeTelemetryPlugin() {
             Object.keys(fields).forEach(function(fname) {
                 var id = data.name + '.' + fname;
                 var state = { timestamp: data.time * 1000, 
-                    value: GetAttr(data.obj, fname.split('.')), 
                     id: id,
                 };
+                state.rawvalue = GetAttr(data.obj, fname)
+                state.value = state.rawvalue
 
+                var db_obj = FLAT_DB[id].properites
+                if(db_obj.hasOwnProperty('poly'))
+                {
+                    var poly = db_obj.poly;
+                    var i =0;
+                    state.value = 0;
+                    for(i=0;i<poly.x.length;i+=1)
+                    {
+                        state.value += Math.pow(state.rawvalue, poly.x[i]) * poly.y[i];
+                    }
+
+                }
                 if(TLM_HISTORY.hasOwnProperty(state.id) == false)
                     TLM_HISTORY[state.id] = []
                 TLM_HISTORY[state.id].push(state)
