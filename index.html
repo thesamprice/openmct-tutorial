@@ -10,11 +10,13 @@
     <script src="realtime-telemetry-plugin.js"></script>
     <script src="historical-telemetry-plugin.js"></script>
 
+    <script src="persistenceFlask.js"></script>
 </head>
 <body>
     <script>
         openmct.setAssetPath('node_modules/openmct/dist');
-        openmct.install(openmct.plugins.LocalStorage());
+//        openmct.install(FlaskPersistenceProviderCreate());
+//        openmct.install(openmct.plugins.LocalStorage());
         openmct.install(openmct.plugins.MyItems());
         openmct.install(openmct.plugins.UTCTimeSystem());
         openmct.time.clock('local', {start: -15 * 60 * 1000, end: 0});
@@ -23,8 +25,9 @@
 
         loadDictionary().then(function(result){
             openmct.install(DictionaryPlugin());
-            openmct.install(RealtimeTelemetryPlugin());
             openmct.install(HistoricalTelemetryPlugin());            
+            openmct.install(RealtimeTelemetryPlugin());            
+
             openmct.start();
         });
 

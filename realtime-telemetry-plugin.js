@@ -4,7 +4,7 @@ function GetAttr( dict, fnames)
         return dict[fnames[0]]
     return GetAttr(dict[fnames[0]], fnames.slice(1))
 }
-var telemetry_history = {}
+var TLM_HISTORY = {}
 /**
  * Basic Realtime telemetry plugin using websockets.
  */
@@ -22,14 +22,15 @@ function RealtimeTelemetryPlugin() {
                 return
             var fields = listener[data.name];
             Object.keys(fields).forEach(function(fname) {
-
+                var id = data.name + '.' + fname;
                 var state = { timestamp: data.time * 1000, 
                     value: GetAttr(data.obj, fname.split('.')), 
-                    id: data.name + '.' + fname};
+                    id: id,
+                };
 
-                if(telemetry_history.hasOwnProperty(state.id) == false)
-                    telemetry_history[state.id] = []
-                telemetry_history[state.id].push( state)
+                if(TLM_HISTORY.hasOwnProperty(state.id) == false)
+                    TLM_HISTORY[state.id] = []
+                TLM_HISTORY[state.id].push(state)
 
                 listener[data.name][fname](state)
             });
