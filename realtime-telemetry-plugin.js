@@ -25,7 +25,6 @@ function GetAttr( obj, key)
         }
     }
     return obj
-
 }
 var TLM_HISTORY = {}
 /**
@@ -39,7 +38,7 @@ function RealtimeTelemetryPlugin() {
         socket.listener = listener;
 
         socket.on('TLM', function (data) {
-            console.log(data)
+
             var listener = this.listener;
             if(listener.hasOwnProperty(data.name) == false)
                 return
@@ -64,6 +63,7 @@ function RealtimeTelemetryPlugin() {
                     }
 
                 }
+
                 if(TLM_HISTORY.hasOwnProperty(state.id) == false)
                     TLM_HISTORY[state.id] = []
                 TLM_HISTORY[state.id].push(state)

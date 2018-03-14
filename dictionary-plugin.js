@@ -43,6 +43,7 @@ var objectProvider = {
             else{
                 var measurement = FLAT_DB[identifier.key];
                 measurement['identifier'] = identifier;
+
                 if (measurement.type == 'folder')
                 {
 
@@ -51,6 +52,36 @@ var objectProvider = {
                     measurement.telemetry = {
                         values: measurement.values
                     }
+
+                    if(measurement.properites.limits)
+                    {
+                        measurement.limitEvaluator = {
+                            evaluate:function (a){
+                                if(FLAT_DB[a.id].properites.limits.rh && a.value >= FLAT_DB[a.id].properites.limits.rh)
+                                {
+                                    return {cssClass: "s-limit-upr s-limit-red",
+                                    name: "Red High"}
+                                }
+                                if(FLAT_DB[a.id].properites.limits.rl && a.value <= FLAT_DB[a.id].properites.limits.rl)
+                                {
+                                    return {cssClass: "s-limit-lwr s-limit-red",
+                                    name: "Red Low"}
+                                }
+                                if(FLAT_DB[a.id].properites.limits.yh && a.value >= FLAT_DB[a.id].properites.limits.yh)
+                                {
+                                    return {cssClass: "s-limit-upr s-limit-yellow",
+                                    name: "Yellow High"}
+                                }
+                                if(FLAT_DB[a.id].properites.limits.yl && a.value <= FLAT_DB[a.id].properites.limits.yl)
+                                {
+                                    return {cssClass: "s-limit-lwr s-limit-yellow",
+                                    name: "Yellow Low"}
+                                }
+
+                            }}
+    
+                    }
+    
                 }
 
                 return measurement;
@@ -62,6 +93,7 @@ var objectProvider = {
         });
         return p
     }
+
 };
 
 var compositionProvider = {
