@@ -138,3 +138,15 @@ function DictionaryPlugin() {
         });
     };
 };
+
+/*TODO Hack until they fix their limit Evaluator */
+openmct.telemetry.limitEvaluator =  function () {
+    if( arguments[0].limitEvaluator && typeof arguments[0].limitEvaluator.evaluate  === 'function')
+    {
+        return arguments[0].limitEvaluator;
+    }
+    else{
+        return this.legacyProvider.limitEvaluator.apply(this.legacyProvider, arguments);
+
+    }
+}
