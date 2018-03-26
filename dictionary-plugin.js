@@ -40,10 +40,13 @@ var objectProvider = {
                     children: TLM_DB_JSON.children
                 };
             }
-            else{
-                var measurement = FLAT_DB[identifier.key];
-                measurement['identifier'] = identifier;
+            else if(FLAT_DB.hasOwnProperty(identifier.key)){
 
+                var measurement = FLAT_DB[identifier.key];
+
+
+                measurement['identifier'] = identifier;
+                
                 if (measurement.type == 'folder')
                 {
 
@@ -85,6 +88,9 @@ var objectProvider = {
                 }
 
                 return measurement;
+            }
+            else{
+                console.log('Key doesnt exist ' + identifier.key)
             }
         }
         var p = new Promise(function(res,rej){
