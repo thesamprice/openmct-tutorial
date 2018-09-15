@@ -56,34 +56,34 @@ var objectProvider = {
                         values: measurement.values
                     }
 
-                    if(measurement.properites.limits)
-                    {
-                        measurement.limitEvaluator = {
-                            evaluate:function (a){
-                                if(FLAT_DB[a.id].properites.limits.rh && a.value >= FLAT_DB[a.id].properites.limits.rh)
-                                {
-                                    return {cssClass: "s-limit-upr s-limit-red",
-                                    name: "Red High"}
-                                }
-                                if(FLAT_DB[a.id].properites.limits.rl && a.value <= FLAT_DB[a.id].properites.limits.rl)
-                                {
-                                    return {cssClass: "s-limit-lwr s-limit-red",
-                                    name: "Red Low"}
-                                }
-                                if(FLAT_DB[a.id].properites.limits.yh && a.value >= FLAT_DB[a.id].properites.limits.yh)
-                                {
-                                    return {cssClass: "s-limit-upr s-limit-yellow",
-                                    name: "Yellow High"}
-                                }
-                                if(FLAT_DB[a.id].properites.limits.yl && a.value <= FLAT_DB[a.id].properites.limits.yl)
-                                {
-                                    return {cssClass: "s-limit-lwr s-limit-yellow",
-                                    name: "Yellow Low"}
-                                }
+                    // if(measurement.properites.limits)
+                    // {
+                    //     measurement.limitEvaluator = {
+                    //         evaluate:function (a){
+                    //             if(FLAT_DB[a.id].properites.limits.rh && a.value >= FLAT_DB[a.id].properites.limits.rh)
+                    //             {
+                    //                 return {cssClass: "s-limit-upr s-limit-red",
+                    //                 name: "Red High"}
+                    //             }
+                    //             if(FLAT_DB[a.id].properites.limits.rl && a.value <= FLAT_DB[a.id].properites.limits.rl)
+                    //             {
+                    //                 return {cssClass: "s-limit-lwr s-limit-red",
+                    //                 name: "Red Low"}
+                    //             }
+                    //             if(FLAT_DB[a.id].properites.limits.yh && a.value >= FLAT_DB[a.id].properites.limits.yh)
+                    //             {
+                    //                 return {cssClass: "s-limit-upr s-limit-yellow",
+                    //                 name: "Yellow High"}
+                    //             }
+                    //             if(FLAT_DB[a.id].properites.limits.yl && a.value <= FLAT_DB[a.id].properites.limits.yl)
+                    //             {
+                    //                 return {cssClass: "s-limit-lwr s-limit-yellow",
+                    //                 name: "Yellow Low"}
+                    //             }
 
-                            }}
+                    //         }}
     
-                    }
+                    // }
     
                 }
 
@@ -146,13 +146,13 @@ function DictionaryPlugin() {
 };
 
 /*TODO Hack until they fix their limit Evaluator */
-openmct.telemetry.limitEvaluator =  function () {
-    if( arguments[0].limitEvaluator && typeof arguments[0].limitEvaluator.evaluate  === 'function')
-    {
-        return arguments[0].limitEvaluator;
-    }
-    else{
-        return this.legacyProvider.limitEvaluator.apply(this.legacyProvider, arguments);
+// openmct.telemetry.limitEvaluator =  function () {
+//     if( arguments[0].limitEvaluator && typeof arguments[0].limitEvaluator.evaluate  === 'function')
+//     {
+//         return arguments[0].limitEvaluator;
+//     }
+//     else{
+//         return this.legacyProvider.limitEvaluator.apply(this.legacyProvider, arguments);
 
-    }
-}
+//     }
+// }

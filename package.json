@@ -20,7 +20,9 @@
   "dependencies": {
     "express": "^4.14.1",
     "express-ws": "^3.0.0",
-    "openmct": "thesamprice/openmct",
+    "mime-db": "^1.36.0",
+    "openmct": "nasa/openmct",
+    "openmct-heatmap": "git://github.com/nasa/openmct-heatmap.git",
     "ws": "^2.0.3"
   }
 }

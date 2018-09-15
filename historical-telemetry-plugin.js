@@ -9,24 +9,25 @@ function HistoricalTelemetryPlugin() {
                 return domainObject.type === 'example.telemetry';
             },
             request: function (domainObject, options) {
-                // var url = '/history/' +
-                //     domainObject.identifier.key //+
-                    // '?start=' + options.start +
-                    // '&end=' + options.end;
+                var url = '/history/' +
+                    domainObject.identifier.key +
+                    '?start=' + options.start +
+                    '&end=' + options.end;
+                    return fetch(url).then(response =>{
+                        if(response.ok){
+                            var res = response.json().then(function(data)
+                            {
+                                var i = 0;
+                                var l = data.length;
+                                for(i=0;i<l; i++)
+                                    data[i].id = domainObject.identifier.key;
+                                return data;
+                            })
+                            return res;
+                        }
 
-                    var p = new Promise(function(res,rej){
-                        var id = domainObject.identifier.key;
-                        console.log(id)
-                        console.log(TLM_HISTORY)
-                        if(TLM_HISTORY.hasOwnProperty(id))
-                        {
-                            return res(TLM_HISTORY[id]);
-                        }
-                        else{
-                            return res([]);
-                        }
-                    });
-                    return p;
+                    })
+
             }
         };
     

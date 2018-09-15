@@ -26,7 +26,7 @@ function GetAttr( obj, key)
     }
     return obj
 }
-var TLM_HISTORY = {}
+
 /**
  * Basic Realtime telemetry plugin using websockets.
  */
@@ -64,10 +64,6 @@ function RealtimeTelemetryPlugin() {
 
                 }
 
-                if(TLM_HISTORY.hasOwnProperty(state.id) == false)
-                    TLM_HISTORY[state.id] = []
-                TLM_HISTORY[state.id].push(state)
-
                 listener[data.name][fname](state)
             });
         });
@@ -89,6 +85,7 @@ function RealtimeTelemetryPlugin() {
                 var field = domainObject.identifier.key.split('.')
                                                    .slice(1)
                                                    .join('.');
+                                                   console.log(field)
                 if(listener.hasOwnProperty(pkt_name) == false)
                     listener[pkt_name] = {};
 

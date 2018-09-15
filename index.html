@@ -11,11 +11,36 @@
     <script src="historical-telemetry-plugin.js"></script>
 
     <script src="persistenceFlask.js"></script>
+    <!-- <script src="node_modules/openmct-heatmap/dist/openmct-heatmap.js"></script> -->
+    <script src="openmct-heatmap/dist/openmct-heatmap.js"></script>
+
 </head>
 <body>
     <script>
+
+openmct.objectViews.addProvider({
+    key: 'my-view',
+    name: 'my view',
+    canView: function (d) {
+        return d.type === 'folder';
+    },
+    priority: function (d) {
+        return 1000;
+    },
+    view: function (domainObject) {
+        return {
+            show: function (container) {
+                container.innerHTML = '<div> Congratulations, this is a view of: ' + domainObject.name + '</div>';
+            },
+            destroy: function (container) {
+
+            }
+        }
+    }
+});
+
         openmct.setAssetPath('node_modules/openmct/dist');
-//        openmct.install(FlaskPersistenceProviderCreate());
+        openmct.install(new FlaskPersistenceProviderCreate());
 //        openmct.install(openmct.plugins.LocalStorage());
         openmct.install(openmct.plugins.MyItems());
         openmct.install(openmct.plugins.UTCTimeSystem());
@@ -27,7 +52,7 @@
             openmct.install(DictionaryPlugin());
             openmct.install(HistoricalTelemetryPlugin());            
             openmct.install(RealtimeTelemetryPlugin());            
-
+            openmct.install(new HeatmapPlugin());
             openmct.start();
         });
 
