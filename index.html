@@ -11,8 +11,8 @@
     <script src="historical-telemetry-plugin.js"></script>
 
     <script src="persistenceFlask.js"></script>
-    <!-- <script src="node_modules/openmct-heatmap/dist/openmct-heatmap.js"></script> -->
-    <script src="openmct-heatmap/dist/openmct-heatmap.js"></script>
+    <!-- <script src="node_modules/openmct-heatmap/dist/openmct-heatmap.js"></script> 
+    <script src="openmct-heatmap/dist/openmct-heatmap.js"></script> -->
 
 </head>
 <body>
@@ -52,7 +52,7 @@ openmct.objectViews.addProvider({
             openmct.install(DictionaryPlugin());
             openmct.install(HistoricalTelemetryPlugin());            
             openmct.install(RealtimeTelemetryPlugin());            
-            openmct.install(new HeatmapPlugin());
+//            openmct.install(new HeatmapPlugin());
             openmct.start();
         });
 
