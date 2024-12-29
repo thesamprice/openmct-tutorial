@@ -14,7 +14,7 @@ WORKDIR /usr/src/openmct-tutorial
 # Copy project files
 COPY package*.json ./
 RUN npm install
-RUN npm install -g parcel
+RUN npm install -g parcel typescript
 # COPY . .
 
 # Build the project

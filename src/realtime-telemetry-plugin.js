@@ -33,7 +33,8 @@ function GetAttr( obj, key)
 function RealtimeTelemetryPlugin() {
     return function (openmct) {
         //var socket = new WebSocket( 'ws://localhost:5000' + '/TLM');
-        var socket = io.connect('localhost:5000');
+        // var socket = io.connect('localhost:5000');
+        var socket = io.connect();
         var listener = {};
         socket.listener = listener;
 

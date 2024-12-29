@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node example-server/server.js",
     "clean": "rm -rf node_modules package-lock.json",
-    "build": "parcel build ./index.html --dist-dir dist",
+    "copy-assets": "cp src/*.html dist/; cp -r node_modules/openmct/dist dist/openmct; cp -r src/*.js dist; cp -r lib dist",
+    "build": "tsc && npm run copy-assets",
     "build_debug": "parcel build ./index.html --dist-dir dist  --no-optimize --no-cache"
   },
   "repository": {
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/nasa/openmct-tutorial#readme",
   "dependencies": {
-    "openmct": "latest"
+    "openmct": "latest",
+    "tsc": "^2.0.4",
+    "typescript": "^5.7.2"
   }
 }

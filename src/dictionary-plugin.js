@@ -31,6 +31,12 @@ var objectProvider = {
     get: function (identifier) {
 
         var GetObj = function(identifier){
+
+            // Strip namespace if present
+            const strippedKey = identifier.key.includes(':')
+            ? identifier.key.split(':')[1] // Remove namespace
+            : identifier.key;
+        
             if (identifier.key === 'spacecraft') {
                 return {
                     identifier: identifier,

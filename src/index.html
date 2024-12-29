@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open MCT</title>
+    <script src="openmct/openmct.js"></script>
+    <script src="lib/http.js"></script>
+    <script src='lib/socket.io-client/socket.io.js'></script>
+    <script src="dictionary-plugin.js"></script>
+
+    <script src="realtime-telemetry-plugin.js"></script>
+    <script src="historical-telemetry-plugin.js"></script>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            openmct.objectViews.addProvider({
+                key: 'my-view',
+                name: 'my view',
+                canView: function (d) {
+                    return d.type === 'folder';
+                },
+                priority: function (d) {
+                    return 1000;
+                },
+                view: function (domainObject) {
+                    return {
+                        show: function (container) {
+                            container.innerHTML = '<div> Congratulations, this is a view of: ' + domainObject.name + '</div>';
+                        },
+                        destroy: function (container) {
+            
+                        }
+                    }
+                }
+            });
+
+
+            openmct.setAssetPath('openmct/dist');
+            openmct.install(openmct.plugins.LocalStorage());
+            openmct.install(openmct.plugins.MyItems());
+//            openmct.install(openmct.plugins.AutoflowView());
+            // Install the UTC Time System
+            openmct.install(openmct.plugins.UTCTimeSystem());
+
+            const ONE_SECOND = 1000;
+            const ONE_MINUTE = ONE_SECOND * 60;
+            const THIRTY_MINUTES = ONE_MINUTE * 30;
+            openmct.install(
+                openmct.plugins.Conductor({
+                    menuOptions: [
+                        {
+                            name: "Realtime",
+                            timeSystem: "utc",
+                            clock: "local",
+                            clockOffsets: {
+                                start: -THIRTY_MINUTES,
+                                end: 0
+                            }
+                        },
+                        {
+                            name: "Fixed",
+                            timeSystem: "utc",
+                            bounds: {
+                                start: Date.now() - THIRTY_MINUTES,
+                                end: 0
+                            }
+                        }
+                    ]
+                })
+            );
+
+
+            openmct.install(openmct.plugins.Espresso());
+            openmct.install(openmct.plugins.TelemetryMean());
+            openmct.install(openmct.plugins.SummaryWidget());
+            openmct.install(openmct.plugins.Notebook());
+            openmct.install(openmct.plugins.LADTable());
+            openmct.install(openmct.plugins.FaultManagement());
+            openmct.install(openmct.plugins.BarChart());
+            openmct.install(openmct.plugins.AutoflowView({
+                type: "telemetry.panel"
+            }));
+            openmct.install(openmct.plugins.DisplayLayout({
+                showAsView: ['summary-widget', 'example.imagery']
+            }));
+    
+
+            loadDictionary().then(function(result){
+                openmct.install(DictionaryPlugin());
+                openmct.install(HistoricalTelemetryPlugin());            
+                openmct.install(RealtimeTelemetryPlugin());
+                openmct.start();
+            });
+    
+            openmct.start();
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "ES5",                // Output ES5 for maximum compatibility
+      "module": "UMD",                // Use a browser-friendly module format
+      "outDir": "./dist",             // Output folder for compiled files
+      "rootDir": "./src",             // Source files location
+      "strict": true,                 // Enable strict type checking
+      "esModuleInterop": true,        // For compatibility with CommonJS/ESM
+      "resolveJsonModule": true,      // Allow importing JSON files
+      "declaration": true             // Generate .d.ts files for type definitions
+    },
+    "include": [
+      "./src/**/*"                   // Include all TypeScript files in the src folder
+    ],
+    "exclude": [
+      "node_modules"                 // Exclude the node_modules folder
+    ]
+  }
