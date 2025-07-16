@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nasa/openmct-tutorial#readme",
   "dependencies": {
+    "d3": "^7.9.0",
     "express": "^4.14.1",
     "express-ws": "^3.0.0",
     "openmct": "nasa/openmct",
