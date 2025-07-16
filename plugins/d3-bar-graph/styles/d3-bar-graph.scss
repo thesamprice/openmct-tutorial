@@ -1,0 +1,287 @@
+/**
+ * D3 Bar Graph Plugin Styles
+ * 
+ * Styles for the D3 bar graph plugin components
+ */
+
+/* Inspector styles */
+.d3-bar-graph-inspector {
+  padding: 16px;
+  
+  .inspector-section {
+    margin-bottom: 24px;
+    
+    h3 {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+    
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      
+      label {
+        flex: 1;
+        font-size: 12px;
+        color: #666;
+        margin-right: 8px;
+      }
+      
+      input, select {
+        flex: 1;
+        padding: 4px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 12px;
+        
+        &:focus {
+          outline: none;
+          border-color: #007acc;
+        }
+      }
+      
+      input[type="checkbox"] {
+        flex: none;
+        margin-right: 8px;
+      }
+      
+      input[type="range"] {
+        flex: 2;
+        margin-right: 8px;
+      }
+      
+      span {
+        flex: none;
+        font-size: 11px;
+        color: #888;
+        min-width: 40px;
+        text-align: right;
+      }
+    }
+  }
+}
+
+/* Chart container styles */
+.d3-bar-graph-container {
+  .d3-bar-graph-chart {
+    .d3-bar-chart-svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .bar {
+      stroke: none;
+      
+      &:hover {
+        stroke: #333;
+        stroke-width: 2px;
+      }
+    }
+    
+    .axis {
+      .domain {
+        stroke: #333;
+        stroke-width: 1px;
+      }
+      
+      .tick {
+        line {
+          stroke: #333;
+          stroke-width: 1px;
+        }
+        
+        text {
+          font-size: 11px;
+          fill: #333;
+        }
+      }
+    }
+    
+    .grid {
+      .tick {
+        line {
+          stroke: #e0e0e0;
+          stroke-width: 1px;
+          opacity: 0.7;
+        }
+        
+        text {
+          display: none;
+        }
+      }
+      
+      .domain {
+        display: none;
+      }
+    }
+    
+    .axis-label {
+      font-size: 12px;
+      font-weight: 500;
+      fill: #333;
+    }
+  }
+}
+
+/* Tooltip styles */
+.d3-bar-chart-tooltip {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 200px;
+  word-wrap: break-word;
+  
+  strong {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .d3-bar-graph-container {
+    .d3-bar-graph-header {
+      flex-direction: column;
+      gap: 8px;
+      
+      .d3-bar-graph-title {
+        font-size: 14px;
+      }
+    }
+    
+    .d3-bar-graph-legend {
+      flex-direction: column;
+      gap: 8px;
+      
+      .legend-item {
+        justify-content: space-between;
+      }
+    }
+    
+    .d3-bar-graph-chart {
+      min-height: 250px;
+      
+      &.compact {
+        min-height: 150px;
+      }
+    }
+  }
+  
+  .d3-bar-graph-inspector {
+    padding: 12px;
+    
+    .inspector-section {
+      margin-bottom: 16px;
+      
+      .form-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        
+        label {
+          margin-right: 0;
+          margin-bottom: 4px;
+        }
+        
+        input[type="range"] {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .d3-bar-graph-container {
+    .d3-bar-graph-header {
+      background: #2d3748;
+      border-bottom-color: #4a5568;
+      color: #e2e8f0;
+    }
+    
+    .d3-bar-graph-legend {
+      background: #2d3748;
+      border-top-color: #4a5568;
+      color: #e2e8f0;
+    }
+    
+    .d3-bar-graph-status {
+      background: #2d3748;
+      border-top-color: #4a5568;
+      color: #a0aec0;
+    }
+    
+    .d3-bar-graph-chart {
+      .d3-bar-chart-svg {
+        background: #1a202c;
+      }
+      
+      .axis {
+        .domain {
+          stroke: #e2e8f0;
+        }
+        
+        .tick {
+          line {
+            stroke: #e2e8f0;
+          }
+          
+          text {
+            fill: #e2e8f0;
+          }
+        }
+      }
+      
+      .grid {
+        .tick {
+          line {
+            stroke: #4a5568;
+          }
+        }
+      }
+      
+      .axis-label {
+        fill: #e2e8f0;
+      }
+    }
+  }
+  
+  .d3-bar-graph-inspector {
+    background: #2d3748;
+    color: #e2e8f0;
+    
+    .inspector-section {
+      h3 {
+        color: #e2e8f0;
+        border-bottom-color: #4a5568;
+      }
+      
+      .form-row {
+        label {
+          color: #a0aec0;
+        }
+        
+        input, select {
+          background: #1a202c;
+          border-color: #4a5568;
+          color: #e2e8f0;
+          
+          &:focus {
+            border-color: #63b3ed;
+          }
+        }
+        
+        span {
+          color: #718096;
+        }
+      }
+    }
+  }
+}
