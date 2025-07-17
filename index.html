@@ -4,11 +4,13 @@
     <title>Open MCT Tutorials</title>
     <script src="node_modules/openmct/dist/openmct.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
     <script src="lib/http.js"></script>
     <script src="dictionary-plugin.js"></script>
     <script src="historical-telemetry-plugin.js"></script>
     <script src="realtime-telemetry-plugin.js"></script>
     <script src="d3-bar-graph-bundle.js"></script>
+    <script src="apache-echarts-bundle.js"></script>
 </head>
 <body>
     <script>
@@ -24,6 +26,7 @@
         openmct.install(HistoricalTelemetryPlugin());
         openmct.install(RealtimeTelemetryPlugin());
         openmct.install(D3BarGraphPlugin());
+        openmct.install(ApacheEChartsPlugin());
 
         openmct.start();
     </script>
