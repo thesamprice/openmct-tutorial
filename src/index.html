@@ -7,6 +7,8 @@
     <script src='lib/socket.io-client/socket.io.js'></script>
     <script src="dictionary-plugin.js"></script>
     <script src="d3-bar-graph-bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script src="apache-echarts-bundle.js"></script>
 
     <script src="realtime-telemetry-plugin.js"></script>
     <script src="historical-telemetry-plugin.js"></script>
@@ -92,6 +94,7 @@
                 openmct.install(HistoricalTelemetryPlugin());            
                 openmct.install(RealtimeTelemetryPlugin());
                 openmct.install(D3BarGraphPlugin());
+                openmct.install(ApacheEChartsPlugin());
                 
                 // Start OpenMCT only once after all plugins are installed
                 openmct.start();
@@ -102,6 +105,7 @@
                 openmct.install(HistoricalTelemetryPlugin());            
                 openmct.install(RealtimeTelemetryPlugin());
                 openmct.install(D3BarGraphPlugin());
+                openmct.install(ApacheEChartsPlugin());
                 openmct.start();
             });
         });
