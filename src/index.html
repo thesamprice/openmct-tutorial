@@ -9,6 +9,12 @@
     <script src="d3-bar-graph-bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
     <script src="apache-echarts-bundle.js"></script>
+    
+    <!-- Packet Plugin -->
+    <script src="packet-plugin.js"></script>
+    <script src="packet-table-view.js"></script>
+    <script src="packet-timeline-view.js"></script>
+    <script src="packet-inspector-view.js"></script>
 
     <script src="realtime-telemetry-plugin.js"></script>
     <script src="historical-telemetry-plugin.js"></script>
@@ -95,6 +101,7 @@
                 openmct.install(RealtimeTelemetryPlugin());
                 openmct.install(D3BarGraphPlugin());
                 openmct.install(ApacheEChartsPlugin());
+                openmct.install(PacketPlugin());
                 
                 // Start OpenMCT only once after all plugins are installed
                 openmct.start();
@@ -106,6 +113,7 @@
                 openmct.install(RealtimeTelemetryPlugin());
                 openmct.install(D3BarGraphPlugin());
                 openmct.install(ApacheEChartsPlugin());
+                openmct.install(PacketPlugin());
                 openmct.start();
             });
         });
