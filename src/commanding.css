@@ -1,0 +1,880 @@
+/* OpenMCT Commanding Interface Styles */
+
+/* Command Form Styles */
+.command-form {
+    padding: 20px;
+    max-width: 600px;
+}
+
+.command-description {
+    background: #f5f5f5;
+    border-left: 4px solid #007acc;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+.command-parameters {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-group label.required::after {
+    content: " *";
+    color: #e74c3c;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.form-control.valid {
+    border-color: #27ae60;
+}
+
+.form-control.invalid {
+    border-color: #e74c3c;
+}
+
+.param-description {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Bitmask Input Styles */
+.bitmask-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    background: #fafafa;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 4px 0;
+}
+
+.checkbox-group:last-child {
+    margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1);
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-group label:hover {
+    color: #007acc;
+}
+
+/* Validation Styles */
+.validation-message {
+    background: #ffebee;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #c62828;
+}
+
+.validation-suggestions {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #ffcdd2;
+    font-style: italic;
+    color: #795548;
+}
+
+.command-validation-feedback {
+    margin-top: 16px;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.alert-error {
+    background: #ffebee;
+    border: 1px solid #f44336;
+    color: #c62828;
+}
+
+/* Command Execution View Styles */
+.command-execution-view {
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.command-header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.command-header h2 {
+    margin: 0 0 12px 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.command-info {
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border-left: 4px solid #007acc;
+}
+
+.command-info p {
+    margin: 6px 0;
+    color: #666;
+}
+
+.command-parameters-list {
+    margin-bottom: 24px;
+}
+
+.command-parameters-list h3 {
+    margin: 0 0 16px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.parameter-info {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    transition: box-shadow 0.2s ease;
+}
+
+.parameter-info:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.param-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.param-type {
+    font-size: 12px;
+    color: #007acc;
+    font-family: monospace;
+    background: #f0f8ff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.param-description {
+    color: #666;
+    font-size: 13px;
+}
+
+.command-actions {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #007acc;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #005a99;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 122, 204, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+
+.btn .icon {
+    margin-right: 6px;
+}
+
+/* Command History View Styles */
+.command-history-view {
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.history-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.history-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.history-list {
+    min-height: 200px;
+}
+
+.no-history {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 2px dashed #ddd;
+}
+
+.history-entry {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.history-entry:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-entry.executed {
+    border-left: 4px solid #f39c12;
+}
+
+.history-entry.completed {
+    border-left: 4px solid #27ae60;
+}
+
+.history-entry.failed {
+    border-left: 4px solid #e74c3c;
+}
+
+.entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.command-name {
+    font-weight: bold;
+    color: #333;
+    font-family: monospace;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.executed {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #666;
+    font-family: monospace;
+}
+
+.entry-details {
+    padding: 12px 16px;
+}
+
+.parameters {
+    margin-bottom: 8px;
+}
+
+.param {
+    display: inline-block;
+    background: #f0f8ff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: monospace;
+    margin-right: 6px;
+    margin-bottom: 4px;
+}
+
+.result {
+    font-size: 13px;
+    color: #666;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #007acc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .command-form {
+        padding: 16px;
+        max-width: 100%;
+    }
+    
+    .command-execution-view,
+    .command-history-view {
+        padding: 16px;
+    }
+    
+    .history-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .checkbox-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+    .command-description {
+        background: #2d3748;
+        color: #cbd5e0;
+    }
+    
+    .form-control {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .form-control:focus {
+        border-color: #63b3ed;
+    }
+    
+    .bitmask-container {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .parameter-info {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .history-entry {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .entry-header {
+        background: #1a202c;
+        border-color: #4a5568;
+    }
+}
+
+/* Animation for command execution feedback */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.status-badge.executed {
+    animation: pulse 2s infinite;
+}
+
+/* Loading spinner for form validation */
+.form-control.validating {
+    background-image: url("data:image/svg+xml,%3csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg transform='translate(1 1)' stroke='%23007acc' stroke-width='2'%3e%3ccircle stroke-opacity='.25' cx='9' cy='9' r='9'/%3e%3cpath d='m18 9a9 9 0 0 1-9 9'%3e%3canimateTransform attributeName='transform' type='rotate' dur='1s' values='0 9 9;360 9 9' repeatCount='indefinite'/%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px 16px;
+}
+
+/* Tooltips for parameter descriptions */
+.param-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.param-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.param-tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Command Queue View Styles */
+.command-queue-view {
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.queue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.queue-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.queue-status {
+    display: flex;
+    gap: 16px;
+    color: #666;
+    font-size: 14px;
+}
+
+.queue-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.queue-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.queue-item.executing {
+    border-left: 4px solid #f39c12;
+    background: #fff8e1;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.queue-position {
+    background: #007acc;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.priority-badge {
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.priority-1, .priority-2, .priority-3 {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.priority-4, .priority-5, .priority-6 {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.priority-7, .priority-8 {
+    background: #fff8e1;
+    color: #f57f17;
+}
+
+.priority-9, .priority-10 {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.item-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 4px 6px;
+    cursor: pointer;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover:not(:disabled) {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-icon:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.item-details {
+    padding: 12px 16px;
+}
+
+.metadata {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.auto-execute.enabled {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.auto-execute.disabled {
+    color: #e74c3c;
+}
+
+.no-commands {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 2px dashed #ddd;
+}
+
+/* Command Scheduler View Styles */
+.command-scheduler-view {
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.scheduler-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.scheduler-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.scheduler-status {
+    display: flex;
+    gap: 16px;
+    color: #666;
+    font-size: 14px;
+}
+
+.scheduler-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.time-filter {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-filter label {
+    font-weight: bold;
+    color: #333;
+}
+
+.time-filter select {
+    max-width: 200px;
+}
+
+.scheduled-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.scheduled-item.scheduled {
+    border-left: 4px solid #3498db;
+}
+
+.scheduled-item.executing {
+    border-left: 4px solid #f39c12;
+    background: #fff8e1;
+}
+
+.scheduled-item.completed {
+    border-left: 4px solid #27ae60;
+    background: #f0fff4;
+}
+
+.scheduled-item.failed {
+    border-left: 4px solid #e74c3c;
+    background: #fff5f5;
+}
+
+.execution-time {
+    font-family: monospace;
+    background: #f0f8ff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.time-until {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #007acc;
+    font-size: 12px;
+}
+
+.time-until.overdue {
+    color: #e74c3c;
+    animation: pulse 1s infinite;
+}
+
+.retry-count {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* Schedule Form Styles */
+.schedule-form, .queue-form {
+    padding: 20px;
+    max-width: 600px;
+}
+
+.form-section {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 16px;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section h3 {
+    margin: 0 0 16px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.schedule-options {
+    margin-top: 16px;
+}
+
+.delay-options, .absolute-options, .condition-options {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.condition-details {
+    margin-top: 12px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Edit Scheduled Form */
+.edit-scheduled-form {
+    padding: 16px;
+}
+
+/* Responsive adjustments for scheduler */
+@media (max-width: 768px) {
+    .queue-header, .scheduler-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .queue-status, .scheduler-status {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .item-info {
+        flex-wrap: wrap;
+    }
+    
+    .metadata {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .time-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .time-filter select {
+        max-width: 100%;
+    }
+}
+
+/* Dark theme support for scheduler */
+@media (prefers-color-scheme: dark) {
+    .queue-item, .scheduled-item {
+        background: #2d3748;
+        border-color: #4a5568;
+        color: #e2e8f0;
+    }
+    
+    .item-header {
+        background: #1a202c;
+        border-color: #4a5568;
+    }
+    
+    .delay-options, .absolute-options, .condition-options {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    
+    .condition-details {
+        background: #1a202c;
+        border-color: #4a5568;
+    }
+}

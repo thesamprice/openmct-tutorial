@@ -16,6 +16,12 @@
     <script src="packet-timeline-view.js"></script>
     <script src="packet-inspector-view.js"></script>
 
+    <!-- Commanding Plugin -->
+    <script src="commanding.js"></script>
+    <script src="command-scheduler.js"></script>
+    <script src="command-queue-views.js"></script>
+    <link rel="stylesheet" href="commanding.css">
+
     <script src="realtime-telemetry-plugin.js"></script>
     <script src="historical-telemetry-plugin.js"></script>
    
@@ -102,6 +108,7 @@
                 openmct.install(D3BarGraphPlugin());
                 openmct.install(ApacheEChartsPlugin());
                 openmct.install(PacketPlugin());
+                openmct.install(new CommandingPlugin());
                 
                 // Start OpenMCT only once after all plugins are installed
                 openmct.start();
@@ -114,6 +121,7 @@
                 openmct.install(D3BarGraphPlugin());
                 openmct.install(ApacheEChartsPlugin());
                 openmct.install(PacketPlugin());
+                openmct.install(new CommandingPlugin());
                 openmct.start();
             });
         });
